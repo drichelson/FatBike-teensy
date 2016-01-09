@@ -25,24 +25,24 @@ void determineMode() {
 }
 
 void setup() {
+    Serial.println(F("Starting..."));
     startMillis = millis();
     delay(500);
     Serial.begin(115200);
     pinMode(onBoardLedPin, OUTPUT);
     digitalWrite(onBoardLedPin, HIGH);
 
-//    initSensors();
+    initSensors();
 //    addSensorEntropy();
 
-//    pixelOnGround = getPixelOnGround();
-//    bikeSpeedMph = getBikeSpeedMph();
+    pixelOnGround = getPixelOnGround();
+    bikeSpeedMph = getBikeSpeedMph();
 
     fire = &Fire::getInstance();
     fatBike = &FatBike::getInstance();
 }
 
 void loop() {
-    //    Serial.println(bikeSpeed);
 
     if (frameCount % 100 == 0) {
 //        addSensorEntropy();
@@ -55,7 +55,7 @@ void loop() {
 
         startMillis = now;
 
-//        determineMode();
+        determineMode();
 //        showGyro();
 //        Serial.println(pixelOnGround);
     }
@@ -63,11 +63,11 @@ void loop() {
     //BEGIN ANIMATION-SPECIFIC CODE
 
     //2 fps
-    //bikeSpeedMph = getBikeSpeedMph();
+    bikeSpeedMph = getBikeSpeedMph();
 
     // calling getPixelOnGround every frame vs. every 10th frame costs us ~2-3 fps
 //    if (frameCount % 10 == 0 && !isMovingMode && bikeSpeedMph < 0.5F) {
-//        pixelOnGround = getPixelOnGround();
+        pixelOnGround = getPixelOnGround();
 //    }
     fire->renderDoubleFire(pixelOnGround, bikeSpeedMph, isMovingMode);
 

@@ -29,13 +29,13 @@ float sensorPitchTo360Scale(float sensorDegrees) {
 
 float getBikeSpeedMph() {
     sensors_event_t event;
-//    long gyroStartMicros = micros();
 
-    //NOTE: This takes about 1ms
+//    long gyroStartMicros = micros();
+    //NOTE: This takes < 900 microseconds
     gyro.getEvent(&event);
-//    float gyroMicros = (micros() - gyroStartMicros) / 1000.0 ;
-//    Serial.print(F("Gyro sensor time (ms):  "));
-//    Serial.println(gyroMicros);
+//    float timeMicros = micros() - gyroStartMicros ;
+//    Serial.print(F("Gyro sensor time (micros):  "));
+//    Serial.println(timeMicros);
 
     // 1mph = 1.2566 rad/sec
     // 10mph = 12.56636 rad/sec
@@ -54,10 +54,9 @@ uint8_t getPixelOnGround() {
     sensors_vec_t orientation;
 
 //    long startMicros = micros();
-    //NOTE: This takes about 1ms
+    //NOTE: This takes < 900 microseconds
     accel.getEvent(&accel_event);
 //    float timeMicros = micros() - startMicros ;
-    
 //    Serial.print(F("Accel sensor time (micros):  "));
 //    Serial.println(timeMicros);
 
@@ -79,6 +78,7 @@ uint8_t getPixelOnGround() {
 }
 
 void initSensors() {
+    Serial.println(F("Initializing sensors..."));
     if (!gyro.begin()) {
         /* There was a problem detecting the L3GD20 ... check your connections */
         Serial.print(F("Ooops, no L3GD20 detected ... Check your wiring or I2C ADDR!"));
@@ -112,23 +112,23 @@ void addSensorEntropy() {
 //    return 100;
 //}
 //
-//void showGyro() {
-//    sensors_event_t event;
-//    gyro.getEvent(&event);
-//    Serial.print("GYRO  ");
-//    Serial.print("X: ");
-//    Serial.print(event.gyro.x);
-//    Serial.print("  ");
-//    Serial.print("Y: ");
-//    Serial.print(event.gyro.y);
-//    Serial.print("  ");
-//    Serial.print("Z: ");
-//    Serial.print(event.gyro.z);
-//    Serial.print("  ");
-//    Serial.println("rad/s ");
-//
-//    Serial.println("");
-////    delay(100);
-//}
+void showGyro() {
+    sensors_event_t event;
+    gyro.getEvent(&event);
+    Serial.print(F("GYRO  "));
+    Serial.print(F("X: "));
+    Serial.print(event.gyro.x);
+    Serial.print(F("  "));
+    Serial.print(F("Y: "));
+    Serial.print(event.gyro.y);
+    Serial.print(F("  "));
+    Serial.print(F("Z: "));
+    Serial.print(event.gyro.z);
+    Serial.print(F("  "));
+    Serial.println(F("rad/s "));
+
+    Serial.println("");
+//    delay(100);
+}
 
 #endif //FATBIKE_SENSORS_H
