@@ -7,9 +7,8 @@
 #include "FatBike.h"
 #include "FatBike.cpp"
 #include "sensors.h"
+#include "flash.h"
 #include "Fire.h"
-
-const int onBoardLedPin = 13;
 
 long frameCount = 0L;
 long startMillis = 0L;
@@ -25,18 +24,17 @@ void determineMode() {
 }
 
 void setup() {
+    delay(5000);
+    Serial.begin(115200);
     Serial.println(F("Starting..."));
     startMillis = millis();
-    delay(500);
-    Serial.begin(115200);
-    pinMode(onBoardLedPin, OUTPUT);
-    digitalWrite(onBoardLedPin, HIGH);
+//    initFlash();
 
-    initSensors();
+//    initSensors();
 //    addSensorEntropy();
 
-    pixelOnGround = getPixelOnGround();
-    bikeSpeedMph = getBikeSpeedMph();
+//    pixelOnGround = getPixelOnGround();
+//    bikeSpeedMph = getBikeSpeedMph();
 
     fire = &Fire::getInstance();
     fatBike = &FatBike::getInstance();
@@ -63,11 +61,11 @@ void loop() {
     //BEGIN ANIMATION-SPECIFIC CODE
 
     //2 fps
-    bikeSpeedMph = getBikeSpeedMph();
+//    bikeSpeedMph = getBikeSpeedMph();
 
     // calling getPixelOnGround every frame vs. every 10th frame costs us ~2-3 fps
 //    if (frameCount % 10 == 0 && !isMovingMode && bikeSpeedMph < 0.5F) {
-        pixelOnGround = getPixelOnGround();
+//        pixelOnGround = getPixelOnGround();
 //    }
     fire->renderDoubleFire(pixelOnGround, bikeSpeedMph, isMovingMode);
 

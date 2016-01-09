@@ -40,4 +40,7 @@ import_arduino_library(Adafruit_9DOF)
 import_arduino_library(Adafruit_L3GD20_U)
 import_arduino_library(Adafruit_LSM303DLHC)
 
+import_arduino_library(SerialFlash)
+import_arduino_library(SPI)
+
 add_teensy_executable(FatBike main.cpp)
