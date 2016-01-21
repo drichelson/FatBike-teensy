@@ -30,11 +30,11 @@ void setup() {
     startMillis = millis();
 //    initFlash();
 
-//    initSensors();
+    initSensors();
 //    addSensorEntropy();
 
-//    pixelOnGround = getPixelOnGround();
-//    bikeSpeedMph = getBikeSpeedMph();
+    pixelOnGround = getPixelOnGround();
+    bikeSpeedMph = getBikeSpeedMph();
 
     fire = &Fire::getInstance();
     fatBike = &FatBike::getInstance();
@@ -54,18 +54,18 @@ void loop() {
         startMillis = now;
 
         determineMode();
-//        showGyro();
-//        Serial.println(pixelOnGround);
+        showGyro();
+        Serial.println(pixelOnGround);
     }
 
     //BEGIN ANIMATION-SPECIFIC CODE
 
     //2 fps
-//    bikeSpeedMph = getBikeSpeedMph();
+    bikeSpeedMph = getBikeSpeedMph();
 
     // calling getPixelOnGround every frame vs. every 10th frame costs us ~2-3 fps
 //    if (frameCount % 10 == 0 && !isMovingMode && bikeSpeedMph < 0.5F) {
-//        pixelOnGround = getPixelOnGround();
+        pixelOnGround = getPixelOnGround();
 //    }
     fire->renderDoubleFire(pixelOnGround, bikeSpeedMph, isMovingMode);
 
