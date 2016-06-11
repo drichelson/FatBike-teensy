@@ -21,7 +21,7 @@
 # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 # SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.5)
 set(CMAKE_TOOLCHAIN_FILE "${CMAKE_SOURCE_DIR}/cmake/teensy-arm.toolchain.cmake")
 
 project(TeensyCMake)
@@ -35,10 +35,12 @@ include(Teensy)
 import_arduino_library(FastLED)
 import_arduino_library(OctoWS2811)
 import_arduino_library(Wire)
-#import_arduino_library(Adafruit_Sensor)
-#import_arduino_library(Adafruit_9DOF)
-#import_arduino_library(Adafruit_L3GD20_U)
-#import_arduino_library(Adafruit_LSM303DLHC)
+import_arduino_library(NXPMotionSense)
+import_arduino_library(EEPROM) #required for NXPMotionSense
+import_arduino_library(Adafruit_Unified_Sensor)
+import_arduino_library(Adafruit_9DOF)
+import_arduino_library(Adafruit_L3GD20_U)
+import_arduino_library(Adafruit_LSM303DLHC)
 
 import_arduino_library(SerialFlash)
 import_arduino_library(SPI)

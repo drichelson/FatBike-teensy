@@ -27,9 +27,10 @@ set(ARDUINO_ROOT "/Applications/Arduino.app" CACHE PATH "Path to the Arduino app
 set(TEENSY_CORES_ROOT "${ARDUINO_ROOT}/Contents/Java/hardware/teensy/avr/cores" CACHE PATH "Path to the Teensy 'cores' repository")
 set(TEENSY_ROOT "${TEENSY_CORES_ROOT}/teensy3")
 set(TOOLCHAIN_ROOT ${ARDUINO_ROOT}/Contents/Java/hardware/tools/arm)
-set(ARDUINO_LIB_ROOT "${ARDUINO_ROOT}/Contents/Java/hardware/teensy/avr/libraries" CACHE PATH "Path to the Arduino library directory")
-set(ARDUINO_VERSION "106" CACHE STRING "Version of the Arduino SDK")
-set(TEENSYDUINO_VERSION "127" CACHE STRING "Version of the Teensyduino SDK")
+set(ARDUINO_LIB_ROOT "/Users/dan/Dropbox/ledicious/Arduino/libraries" CACHE PATH "Path to the Arduino library directory")
+set(TEENSY_LIB_ROOT "${ARDUINO_ROOT}/Contents/Java/hardware/teensy/avr/libraries" CACHE PATH "Path to the Teensy Arduino library directory")
+set(ARDUINO_VERSION "168" CACHE STRING "Version of the Arduino SDK")
+set(TEENSYDUINO_VERSION "128" CACHE STRING "Version of the Teensyduino SDK")
 #set(TEENSY_MODEL "MK20DX256" CACHE STRING "Model of the Teensy MCU")
 set(TEENSY_MODEL "MK20DX256") # XXX Add Teensy 3.0 support.
 

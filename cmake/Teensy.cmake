@@ -32,7 +32,7 @@ set(TEENSY_C_CORE_FILES
     ${TEENSY_ROOT}/usb_mem.c
     ${TEENSY_ROOT}/usb_dev.c
     ${TEENSY_ROOT}/usb_midi.c
-    ${TEENSY_ROOT}/usb_mouse.c 
+    ${TEENSY_ROOT}/usb_mouse.c
     ${TEENSY_ROOT}/usb_desc.c
     ${TEENSY_ROOT}/usb_keyboard.c
     ${TEENSY_ROOT}/usb_joystick.c
@@ -51,12 +51,12 @@ set(TEENSY_CXX_CORE_FILES
     ${TEENSY_ROOT}/main.cpp
     ${TEENSY_ROOT}/usb_inst.cpp
     ${TEENSY_ROOT}/yield.cpp
-    ${TEENSY_ROOT}/HardwareSerial1.cpp 
+    ${TEENSY_ROOT}/HardwareSerial1.cpp
     ${TEENSY_ROOT}/HardwareSerial2.cpp
     ${TEENSY_ROOT}/HardwareSerial3.cpp
     ${TEENSY_ROOT}/WMath.cpp
     ${TEENSY_ROOT}/Print.cpp
-    
+
     ${TEENSY_ROOT}/new.cpp
     ${TEENSY_ROOT}/usb_flightsim.cpp
     ${TEENSY_ROOT}/avr_emulation.cpp
@@ -109,12 +109,12 @@ macro(add_teensy_executable TARGET_NAME SOURCES)
         get_filename_component(SOURCE_PATH ${SOURCE} REALPATH)
         set(FINAL_SOURCES ${FINAL_SOURCES} ${SOURCE})
     endforeach(SOURCE ${SOURCES})
-    
+
     # Add the Arduino library directory to the include path if found.
     if(EXISTS ${ARDUINO_LIB_ROOT})
         include_directories(${ARDUINO_LIB_ROOT})
     endif(EXISTS ${ARDUINO_LIB_ROOT})
-    
+
     # Build the ELF executable.
     add_executable(${TARGET_NAME} ${FINAL_SOURCES})
     set_source_files_properties(${FINAL_SOURCES}
@@ -125,7 +125,7 @@ macro(add_teensy_executable TARGET_NAME SOURCES)
         SUFFIX ".elf"
     )
     set(TARGET_ELF "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${TARGET_NAME}.elf")
-    
+
     # Generate the hex firmware files that can be flashed to the MCU.
     set(EEPROM_OPTS -O ihex -j .eeprom --set-section-flags=.eeprom=alloc,load --no-change-warnings --change-section-lma .eeprom=0)
     set(HEX_OPTS -O ihex -R .eeprom)
@@ -138,28 +138,34 @@ macro(add_teensy_executable TARGET_NAME SOURCES)
     add_custom_target(${TARGET_NAME}_Firmware ALL
                       DEPENDS ${TARGET_ELF}.eep ${TARGET_ELF}.hex)
     add_dependencies(${TARGET_NAME}_Firmware ${TARGET_NAME})
-    
+
     if(EXISTS "${TY_EXECUTABLE}")
         add_custom_target(${TARGET_NAME}_Upload
                           DEPENDS ${TY_EXECUTABLE} ${TARGET_ELF}.hex
                           COMMAND "${TY_EXECUTABLE}" upload ${TARGET_ELF}.hex)
         add_dependencies(${TARGET_NAME}_Upload ${TARGET_NAME}_Firmware)
     endif(EXISTS "${TY_EXECUTABLE}")
-endmacro(add_teensy_executable) 
+endmacro(add_teensy_executable)
 
 macro(import_arduino_library LIB_NAME)
     # Check if we can find the library.
     if(NOT EXISTS ${ARDUINO_LIB_ROOT})
-        message(FATAL_ERROR "Could not find the Arduino library directory")
+        message(FATAL_ERROR "Could not find the Arduino library directory: ${ARDUINO_LIB_ROOT}")
     endif(NOT EXISTS ${ARDUINO_LIB_ROOT})
     set(LIB_DIR "${ARDUINO_LIB_ROOT}/${LIB_NAME}")
     if(NOT EXISTS "${LIB_DIR}")
-        message(FATAL_ERROR "Could not find the directory for library '${LIB_NAME}'")
+        if(NOT EXISTS ${TEENSY_LIB_ROOT})
+            message(FATAL_ERROR "Could not find the Teensy library directory: ${TEENSY_LIB_ROOT}")
+        endif(NOT EXISTS ${TEENSY_LIB_ROOT})
+        set(LIB_DIR "${TEENSY_LIB_ROOT}/${LIB_NAME}")
+        if(NOT EXISTS "${LIB_DIR}")
+             message(FATAL_ERROR "Could not find the directory for library '${LIB_NAME}'")
+        endif(NOT EXISTS "${LIB_DIR}")
     endif(NOT EXISTS "${LIB_DIR}")
-    
+
     # Add it to the include path.
     include_directories("${LIB_DIR}")
-    
+
     # Mark source files to be built along with the sketch code.
     file(GLOB SOURCES_CPP ABSOLUTE "${LIB_DIR}" "${LIB_DIR}/*.cpp")
     foreach(SOURCE_CPP ${SOURCES_CPP})
