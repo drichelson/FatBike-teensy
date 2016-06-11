@@ -35,8 +35,6 @@ include(Teensy)
 import_arduino_library(FastLED)
 import_arduino_library(OctoWS2811)
 import_arduino_library(Wire)
-import_arduino_library(NXPMotionSense)
-import_arduino_library(EEPROM) #required for NXPMotionSense
 import_arduino_library(Adafruit_Unified_Sensor)
 import_arduino_library(Adafruit_9DOF)
 import_arduino_library(Adafruit_L3GD20_U)
