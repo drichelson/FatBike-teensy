@@ -1,0 +1,5 @@
+# Hashes of file build rules.
+0af8d5b95a12a272757e7408299cef12 CMakeFiles/FatBike_Firmware
+54a8a693d2a9efacabc5dd9ca76a7b78 CMakeFiles/FatBike_Upload
+0b5a86c4242a63816944516607a9d0de bin/FatBike.elf.eep
+a2b13acc85990b5d2a2dd65540470d33 bin/FatBike.elf.hex

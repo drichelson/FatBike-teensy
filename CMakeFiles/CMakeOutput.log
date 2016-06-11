@@ -1,0 +1,296 @@
+The target system is: Generic -  - arm
+The host system is: Darwin - 15.4.0 - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/arm-none-eabi-gcc 
+Build flags: -Os;-Wall;-nostdlib;-ffunction-sections;-fdata-sections;-mcpu=cortex-m4;-mthumb;-DTIME_T=1421620748
+Id flags: 
+
+The output was:
+0
+/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/bin/ld: warning: cannot find entry symbol _start; defaulting to 0000000000008000
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is GNU, found in "/Users/dan/Dropbox/FatBike-teensy/CMakeFiles/3.5.0/CompilerIdC/a.out"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/arm-none-eabi-g++ 
+Build flags: -Os;-Wall;-nostdlib;-ffunction-sections;-fdata-sections;-mcpu=cortex-m4;-mthumb;-fno-exceptions;-fno-rtti;-felide-constructors;-std=gnu++0x
+Id flags: 
+
+The output was:
+0
+/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/bin/ld: warning: cannot find entry symbol _start; defaulting to 0000000000008000
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+
+The CXX compiler identification is GNU, found in "/Users/dan/Dropbox/FatBike-teensy/CMakeFiles/3.5.0/CompilerIdCXX/a.out"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: /Users/dan/Dropbox/FatBike-teensy/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_8ce81/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_8ce81.dir/build.make CMakeFiles/cmTC_8ce81.dir/build
+Building C object CMakeFiles/cmTC_8ce81.dir/testCCompiler.c.obj
+/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/arm-none-eabi-gcc  -DARDUINO=106 -DLAYOUT_US_ENGLISH -DTEENSYDUINO=127 -DUSB_PID=null -DUSB_VID=null -D__MK20DX256__ -I/Applications/Arduino.app/Contents/Java/hardware/teensy/avr/cores/teensy3  -Os -Wall -nostdlib -ffunction-sections -fdata-sections -mcpu=cortex-m4 -mthumb -DTIME_T=1421620748    -MMD -o CMakeFiles/cmTC_8ce81.dir/testCCompiler.c.obj   -c /Users/dan/Dropbox/FatBike-teensy/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_8ce81
+/usr/local/Cellar/cmake/3.5.0/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8ce81.dir/link.txt --verbose=1
+/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/arm-none-eabi-gcc  -Os -Wall -nostdlib -ffunction-sections -fdata-sections -mcpu=cortex-m4 -mthumb -DTIME_T=1421620748   -Os -Wl,--gc-sections -mcpu=cortex-m4 -mthumb -T/Applications/Arduino.app/Contents/Java/hardware/teensy/avr/cores/teensy3/mk20dx256.ld  CMakeFiles/cmTC_8ce81.dir/testCCompiler.c.obj  -o cmTC_8ce81 
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /Users/dan/Dropbox/FatBike-teensy/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_1600b/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_1600b.dir/build.make CMakeFiles/cmTC_1600b.dir/build
+Building C object CMakeFiles/cmTC_1600b.dir/CMakeCCompilerABI.c.obj
+/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/arm-none-eabi-gcc  -DARDUINO=106 -DLAYOUT_US_ENGLISH -DTEENSYDUINO=127 -DUSB_PID=null -DUSB_VID=null -D__MK20DX256__ -I/Applications/Arduino.app/Contents/Java/hardware/teensy/avr/cores/teensy3  -Os -Wall -nostdlib -ffunction-sections -fdata-sections -mcpu=cortex-m4 -mthumb -DTIME_T=1421620748    -MMD -o CMakeFiles/cmTC_1600b.dir/CMakeCCompilerABI.c.obj   -c /usr/local/Cellar/cmake/3.5.0/share/cmake/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_1600b
+/usr/local/Cellar/cmake/3.5.0/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1600b.dir/link.txt --verbose=1
+/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/arm-none-eabi-gcc  -Os -Wall -nostdlib -ffunction-sections -fdata-sections -mcpu=cortex-m4 -mthumb -DTIME_T=1421620748   -Os -Wl,--gc-sections -mcpu=cortex-m4 -mthumb -T/Applications/Arduino.app/Contents/Java/hardware/teensy/avr/cores/teensy3/mk20dx256.ld -v CMakeFiles/cmTC_1600b.dir/CMakeCCompilerABI.c.obj  -o cmTC_1600b  
+Using built-in specs.
+COLLECT_GCC=/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/arm-none-eabi-gcc
+COLLECT_LTO_WRAPPER=/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/lto-wrapper
+Target: arm-none-eabi
+Configured with: /Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/src/gcc/configure --target=arm-none-eabi --prefix=/Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/install-native --libexecdir=/Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/install-native/lib --infodir=/Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/install-native/share/doc/gcc-arm-none-eabi/info --mandir=/Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/install-native/share/doc/gcc-arm-none-eabi/man --htmldir=/Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/install-native/share/doc/gcc-arm-none-eabi/html --pdfdir=/Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/install-native/share/doc/gcc-arm-none-eabi/pdf --enable-languages=c,c++ --enable-plugins --disable-decimal-float --disable-libffi --disable-libgomp --disable-libmudflap --disable-libquadmath --disable-libssp --disable-libstdcxx-pch --disable-nls --disable-shared --disable-threads --disable-tls --with-gnu-as --with-gnu-ld --with-newlib --with-headers=yes --with-python-dir=share/gcc-arm-none-eabi --with-sysroot=/Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/install-native/arm-none-eabi --build=x86_64-apple-darwin10 --host=x86_64-apple-darwin10 --with-gmp=/Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/build-native/host-libs/usr --with-mpfr=/Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/build-native/host-libs/usr --with-mpc=/Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/build-native/host-libs/usr --with-isl=/Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/build-native/host-libs/usr --with-cloog=/Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/build-native/host-libs/usr --with-libelf=/Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/build-native/host-libs/usr --with-host-libstdcxx='-static-libgcc -Wl,-lstdc++ -lm' --with-pkgversion='GNU Tools for ARM Embedded Processors' --with-multilib-list=armv6-m,armv7-m,armv7e-m,armv7-r
+Thread model: single
+gcc version 4.8.4 20140725 (release) [ARM/embedded-4_8-branch revision 213147] (GNU Tools for ARM Embedded Processors) 
+COMPILER_PATH=/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/:/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/:/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/bin/
+LIBRARY_PATH=/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7e-m/:/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv7e-m/:/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../arm-none-eabi/lib/armv7e-m/:/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/:/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/:/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/:/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../arm-none-eabi/lib/
+COLLECT_GCC_OPTIONS='-Os' '-Wall' '-nostdlib' '-ffunction-sections' '-fdata-sections' '-mcpu=cortex-m4' '-mthumb' '-D' 'TIME_T=1421620748' '-Os' '-mcpu=cortex-m4' '-mthumb' '-T' '/Applications/Arduino.app/Contents/Java/hardware/teensy/avr/cores/teensy3/mk20dx256.ld' '-v' '-o' 'cmTC_1600b'
+ /Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/collect2 --sysroot=/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../arm-none-eabi -X -o cmTC_1600b -L/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7e-m -L/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv7e-m -L/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../arm-none-eabi/lib/armv7e-m -L/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4 -L/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc -L/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib -L/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../arm-none-eabi/lib --gc-sections CMakeFiles/cmTC_1600b.dir/CMakeCCompilerABI.c.obj -T /Applications/Arduino.app/Contents/Java/hardware/teensy/avr/cores/teensy3/mk20dx256.ld
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(arm-none-eabi-ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /Users/dan/Dropbox/FatBike-teensy/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_1600b/fast"]
+  ignore line: [/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_1600b.dir/build.make CMakeFiles/cmTC_1600b.dir/build]
+  ignore line: [Building C object CMakeFiles/cmTC_1600b.dir/CMakeCCompilerABI.c.obj]
+  ignore line: [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/arm-none-eabi-gcc  -DARDUINO=106 -DLAYOUT_US_ENGLISH -DTEENSYDUINO=127 -DUSB_PID=null -DUSB_VID=null -D__MK20DX256__ -I/Applications/Arduino.app/Contents/Java/hardware/teensy/avr/cores/teensy3  -Os -Wall -nostdlib -ffunction-sections -fdata-sections -mcpu=cortex-m4 -mthumb -DTIME_T=1421620748    -MMD -o CMakeFiles/cmTC_1600b.dir/CMakeCCompilerABI.c.obj   -c /usr/local/Cellar/cmake/3.5.0/share/cmake/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_1600b]
+  ignore line: [/usr/local/Cellar/cmake/3.5.0/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1600b.dir/link.txt --verbose=1]
+  ignore line: [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/arm-none-eabi-gcc  -Os -Wall -nostdlib -ffunction-sections -fdata-sections -mcpu=cortex-m4 -mthumb -DTIME_T=1421620748   -Os -Wl,--gc-sections -mcpu=cortex-m4 -mthumb -T/Applications/Arduino.app/Contents/Java/hardware/teensy/avr/cores/teensy3/mk20dx256.ld -v CMakeFiles/cmTC_1600b.dir/CMakeCCompilerABI.c.obj  -o cmTC_1600b  ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/arm-none-eabi-gcc]
+  ignore line: [COLLECT_LTO_WRAPPER=/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/lto-wrapper]
+  ignore line: [Target: arm-none-eabi]
+  ignore line: [Configured with: /Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/src/gcc/configure --target=arm-none-eabi --prefix=/Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/install-native --libexecdir=/Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/install-native/lib --infodir=/Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/install-native/share/doc/gcc-arm-none-eabi/info --mandir=/Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/install-native/share/doc/gcc-arm-none-eabi/man --htmldir=/Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/install-native/share/doc/gcc-arm-none-eabi/html --pdfdir=/Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/install-native/share/doc/gcc-arm-none-eabi/pdf --enable-languages=c,c++ --enable-plugins --disable-decimal-float --disable-libffi --disable-libgomp --disable-libmudflap --disable-libquadmath --disable-libssp --disable-libstdcxx-pch --disable-nls --disable-shared --disable-threads --disable-tls --with-gnu-as --with-gnu-ld --with-newlib --with-headers=yes --with-python-dir=share/gcc-arm-none-eabi --with-sysroot=/Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/install-native/arm-none-eabi --build=x86_64-apple-darwin10 --host=x86_64-apple-darwin10 --with-gmp=/Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/build-native/host-libs/usr --with-mpfr=/Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/build-native/host-libs/usr --with-mpc=/Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/build-native/host-libs/usr --with-isl=/Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/build-native/host-libs/usr --with-cloog=/Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/build-native/host-libs/usr --with-libelf=/Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/build-native/host-libs/usr --with-host-libstdcxx='-static-libgcc -Wl,-lstdc++ -lm' --with-pkgversion='GNU Tools for ARM Embedded Processors' --with-multilib-list=armv6-m,armv7-m,armv7e-m,armv7-r]
+  ignore line: [Thread model: single]
+  ignore line: [gcc version 4.8.4 20140725 (release) [ARM/embedded-4_8-branch revision 213147] (GNU Tools for ARM Embedded Processors) ]
+  ignore line: [COMPILER_PATH=/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/:/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/:/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/bin/]
+  ignore line: [LIBRARY_PATH=/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7e-m/:/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv7e-m/:/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../arm-none-eabi/lib/armv7e-m/:/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/:/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/:/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/:/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../arm-none-eabi/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-Os' '-Wall' '-nostdlib' '-ffunction-sections' '-fdata-sections' '-mcpu=cortex-m4' '-mthumb' '-D' 'TIME_T=1421620748' '-Os' '-mcpu=cortex-m4' '-mthumb' '-T' '/Applications/Arduino.app/Contents/Java/hardware/teensy/avr/cores/teensy3/mk20dx256.ld' '-v' '-o' 'cmTC_1600b']
+  link line: [ /Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/collect2 --sysroot=/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../arm-none-eabi -X -o cmTC_1600b -L/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7e-m -L/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv7e-m -L/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../arm-none-eabi/lib/armv7e-m -L/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4 -L/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc -L/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib -L/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../arm-none-eabi/lib --gc-sections CMakeFiles/cmTC_1600b.dir/CMakeCCompilerABI.c.obj -T /Applications/Arduino.app/Contents/Java/hardware/teensy/avr/cores/teensy3/mk20dx256.ld]
+    arg [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/collect2] ==> ignore
+    arg [--sysroot=/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../arm-none-eabi] ==> ignore
+    arg [-X] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_1600b] ==> ignore
+    arg [-L/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7e-m] ==> dir [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7e-m]
+    arg [-L/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv7e-m] ==> dir [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv7e-m]
+    arg [-L/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../arm-none-eabi/lib/armv7e-m] ==> dir [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../arm-none-eabi/lib/armv7e-m]
+    arg [-L/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4] ==> dir [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4]
+    arg [-L/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc] ==> dir [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc]
+    arg [-L/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib] ==> dir [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib]
+    arg [-L/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../arm-none-eabi/lib] ==> dir [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../arm-none-eabi/lib]
+    arg [--gc-sections] ==> ignore
+    arg [CMakeFiles/cmTC_1600b.dir/CMakeCCompilerABI.c.obj] ==> ignore
+    arg [-T] ==> ignore
+    arg [/Applications/Arduino.app/Contents/Java/hardware/teensy/avr/cores/teensy3/mk20dx256.ld] ==> ignore
+  collapse library dir [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7e-m] ==> [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/lib/gcc/arm-none-eabi/4.8.4/armv7e-m]
+  collapse library dir [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv7e-m] ==> [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/arm-none-eabi/lib/armv7e-m]
+  collapse library dir [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../arm-none-eabi/lib/armv7e-m] ==> [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/arm-none-eabi/lib/armv7e-m]
+  collapse library dir [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4] ==> [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/lib/gcc/arm-none-eabi/4.8.4]
+  collapse library dir [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc] ==> [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/lib/gcc]
+  collapse library dir [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib] ==> [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/arm-none-eabi/lib]
+  collapse library dir [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../arm-none-eabi/lib] ==> [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/arm-none-eabi/lib]
+  implicit libs: []
+  implicit dirs: [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/lib/gcc/arm-none-eabi/4.8.4/armv7e-m;/Applications/Arduino.app/Contents/Java/hardware/tools/arm/arm-none-eabi/lib/armv7e-m;/Applications/Arduino.app/Contents/Java/hardware/tools/arm/lib/gcc/arm-none-eabi/4.8.4;/Applications/Arduino.app/Contents/Java/hardware/tools/arm/lib/gcc;/Applications/Arduino.app/Contents/Java/hardware/tools/arm/arm-none-eabi/lib]
+  implicit fwks: []
+
+
+
+
+Detecting C [-std=c11] compiler features compiled with the following output:
+Change Dir: /Users/dan/Dropbox/FatBike-teensy/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_e48b2/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_e48b2.dir/build.make CMakeFiles/cmTC_e48b2.dir/build
+Building C object CMakeFiles/cmTC_e48b2.dir/feature_tests.c.obj
+/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/arm-none-eabi-gcc  -DARDUINO=106 -DLAYOUT_US_ENGLISH -DTEENSYDUINO=127 -DUSB_PID=null -DUSB_VID=null -D__MK20DX256__ -I/Applications/Arduino.app/Contents/Java/hardware/teensy/avr/cores/teensy3  -Os -Wall -nostdlib -ffunction-sections -fdata-sections -mcpu=cortex-m4 -mthumb -DTIME_T=1421620748    -MMD -std=c11 -o CMakeFiles/cmTC_e48b2.dir/feature_tests.c.obj   -c /Users/dan/Dropbox/FatBike-teensy/CMakeFiles/feature_tests.c
+Linking C executable cmTC_e48b2
+/usr/local/Cellar/cmake/3.5.0/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e48b2.dir/link.txt --verbose=1
+/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/arm-none-eabi-gcc  -Os -Wall -nostdlib -ffunction-sections -fdata-sections -mcpu=cortex-m4 -mthumb -DTIME_T=1421620748   -Os -Wl,--gc-sections -mcpu=cortex-m4 -mthumb -T/Applications/Arduino.app/Contents/Java/hardware/teensy/avr/cores/teensy3/mk20dx256.ld  CMakeFiles/cmTC_e48b2.dir/feature_tests.c.obj  -o cmTC_e48b2 
+
+
+
+
+Detecting C [-std=c99] compiler features compiled with the following output:
+Change Dir: /Users/dan/Dropbox/FatBike-teensy/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_9c352/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_9c352.dir/build.make CMakeFiles/cmTC_9c352.dir/build
+Building C object CMakeFiles/cmTC_9c352.dir/feature_tests.c.obj
+/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/arm-none-eabi-gcc  -DARDUINO=106 -DLAYOUT_US_ENGLISH -DTEENSYDUINO=127 -DUSB_PID=null -DUSB_VID=null -D__MK20DX256__ -I/Applications/Arduino.app/Contents/Java/hardware/teensy/avr/cores/teensy3  -Os -Wall -nostdlib -ffunction-sections -fdata-sections -mcpu=cortex-m4 -mthumb -DTIME_T=1421620748    -MMD -std=c99 -o CMakeFiles/cmTC_9c352.dir/feature_tests.c.obj   -c /Users/dan/Dropbox/FatBike-teensy/CMakeFiles/feature_tests.c
+Linking C executable cmTC_9c352
+/usr/local/Cellar/cmake/3.5.0/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9c352.dir/link.txt --verbose=1
+/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/arm-none-eabi-gcc  -Os -Wall -nostdlib -ffunction-sections -fdata-sections -mcpu=cortex-m4 -mthumb -DTIME_T=1421620748   -Os -Wl,--gc-sections -mcpu=cortex-m4 -mthumb -T/Applications/Arduino.app/Contents/Java/hardware/teensy/avr/cores/teensy3/mk20dx256.ld  CMakeFiles/cmTC_9c352.dir/feature_tests.c.obj  -o cmTC_9c352 
+
+
+
+
+Detecting C [-std=c90] compiler features compiled with the following output:
+Change Dir: /Users/dan/Dropbox/FatBike-teensy/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_ee898/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_ee898.dir/build.make CMakeFiles/cmTC_ee898.dir/build
+Building C object CMakeFiles/cmTC_ee898.dir/feature_tests.c.obj
+/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/arm-none-eabi-gcc  -DARDUINO=106 -DLAYOUT_US_ENGLISH -DTEENSYDUINO=127 -DUSB_PID=null -DUSB_VID=null -D__MK20DX256__ -I/Applications/Arduino.app/Contents/Java/hardware/teensy/avr/cores/teensy3  -Os -Wall -nostdlib -ffunction-sections -fdata-sections -mcpu=cortex-m4 -mthumb -DTIME_T=1421620748    -MMD -std=c90 -o CMakeFiles/cmTC_ee898.dir/feature_tests.c.obj   -c /Users/dan/Dropbox/FatBike-teensy/CMakeFiles/feature_tests.c
+Linking C executable cmTC_ee898
+/usr/local/Cellar/cmake/3.5.0/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ee898.dir/link.txt --verbose=1
+/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/arm-none-eabi-gcc  -Os -Wall -nostdlib -ffunction-sections -fdata-sections -mcpu=cortex-m4 -mthumb -DTIME_T=1421620748   -Os -Wl,--gc-sections -mcpu=cortex-m4 -mthumb -T/Applications/Arduino.app/Contents/Java/hardware/teensy/avr/cores/teensy3/mk20dx256.ld  CMakeFiles/cmTC_ee898.dir/feature_tests.c.obj  -o cmTC_ee898 
+
+
+Determining if the CXX compiler works passed with the following output:
+Change Dir: /Users/dan/Dropbox/FatBike-teensy/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_ce0b3/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_ce0b3.dir/build.make CMakeFiles/cmTC_ce0b3.dir/build
+Building CXX object CMakeFiles/cmTC_ce0b3.dir/testCXXCompiler.cxx.obj
+/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/arm-none-eabi-g++   -DARDUINO=106 -DLAYOUT_US_ENGLISH -DTEENSYDUINO=127 -DUSB_PID=null -DUSB_VID=null -D__MK20DX256__ -I/Applications/Arduino.app/Contents/Java/hardware/teensy/avr/cores/teensy3  -Os -Wall -nostdlib -ffunction-sections -fdata-sections -mcpu=cortex-m4 -mthumb -fno-exceptions -fno-rtti -felide-constructors -std=gnu++0x    -MMD -o CMakeFiles/cmTC_ce0b3.dir/testCXXCompiler.cxx.obj -c /Users/dan/Dropbox/FatBike-teensy/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_ce0b3
+/usr/local/Cellar/cmake/3.5.0/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ce0b3.dir/link.txt --verbose=1
+/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/arm-none-eabi-gcc  -Os -Wl,--gc-sections -mcpu=cortex-m4 -mthumb -T/Applications/Arduino.app/Contents/Java/hardware/teensy/avr/cores/teensy3/mk20dx256.ld  -o cmTC_ce0b3  CMakeFiles/cmTC_ce0b3.dir/testCXXCompiler.cxx.obj  -larm_cortexM4l_math -lm
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: /Users/dan/Dropbox/FatBike-teensy/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_0491b/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_0491b.dir/build.make CMakeFiles/cmTC_0491b.dir/build
+Building CXX object CMakeFiles/cmTC_0491b.dir/CMakeCXXCompilerABI.cpp.obj
+/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/arm-none-eabi-g++   -DARDUINO=106 -DLAYOUT_US_ENGLISH -DTEENSYDUINO=127 -DUSB_PID=null -DUSB_VID=null -D__MK20DX256__ -I/Applications/Arduino.app/Contents/Java/hardware/teensy/avr/cores/teensy3  -Os -Wall -nostdlib -ffunction-sections -fdata-sections -mcpu=cortex-m4 -mthumb -fno-exceptions -fno-rtti -felide-constructors -std=gnu++0x    -MMD -o CMakeFiles/cmTC_0491b.dir/CMakeCXXCompilerABI.cpp.obj -c /usr/local/Cellar/cmake/3.5.0/share/cmake/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_0491b
+/usr/local/Cellar/cmake/3.5.0/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0491b.dir/link.txt --verbose=1
+/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/arm-none-eabi-gcc  -Os -Wl,--gc-sections -mcpu=cortex-m4 -mthumb -T/Applications/Arduino.app/Contents/Java/hardware/teensy/avr/cores/teensy3/mk20dx256.ld -v -o cmTC_0491b  CMakeFiles/cmTC_0491b.dir/CMakeCXXCompilerABI.cpp.obj   -larm_cortexM4l_math -lm
+Using built-in specs.
+COLLECT_GCC=/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/arm-none-eabi-gcc
+COLLECT_LTO_WRAPPER=/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/lto-wrapper
+Target: arm-none-eabi
+Configured with: /Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/src/gcc/configure --target=arm-none-eabi --prefix=/Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/install-native --libexecdir=/Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/install-native/lib --infodir=/Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/install-native/share/doc/gcc-arm-none-eabi/info --mandir=/Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/install-native/share/doc/gcc-arm-none-eabi/man --htmldir=/Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/install-native/share/doc/gcc-arm-none-eabi/html --pdfdir=/Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/install-native/share/doc/gcc-arm-none-eabi/pdf --enable-languages=c,c++ --enable-plugins --disable-decimal-float --disable-libffi --disable-libgomp --disable-libmudflap --disable-libquadmath --disable-libssp --disable-libstdcxx-pch --disable-nls --disable-shared --disable-threads --disable-tls --with-gnu-as --with-gnu-ld --with-newlib --with-headers=yes --with-python-dir=share/gcc-arm-none-eabi --with-sysroot=/Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/install-native/arm-none-eabi --build=x86_64-apple-darwin10 --host=x86_64-apple-darwin10 --with-gmp=/Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/build-native/host-libs/usr --with-mpfr=/Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/build-native/host-libs/usr --with-mpc=/Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/build-native/host-libs/usr --with-isl=/Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/build-native/host-libs/usr --with-cloog=/Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/build-native/host-libs/usr --with-libelf=/Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/build-native/host-libs/usr --with-host-libstdcxx='-static-libgcc -Wl,-lstdc++ -lm' --with-pkgversion='GNU Tools for ARM Embedded Processors' --with-multilib-list=armv6-m,armv7-m,armv7e-m,armv7-r
+Thread model: single
+gcc version 4.8.4 20140725 (release) [ARM/embedded-4_8-branch revision 213147] (GNU Tools for ARM Embedded Processors) 
+COMPILER_PATH=/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/:/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/:/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/bin/
+LIBRARY_PATH=/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7e-m/:/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv7e-m/:/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../arm-none-eabi/lib/armv7e-m/:/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/:/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/:/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/:/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../arm-none-eabi/lib/
+COLLECT_GCC_OPTIONS='-Os' '-mcpu=cortex-m4' '-mthumb' '-T' '/Applications/Arduino.app/Contents/Java/hardware/teensy/avr/cores/teensy3/mk20dx256.ld' '-v' '-o' 'cmTC_0491b'
+ /Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/collect2 --sysroot=/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../arm-none-eabi -X -o cmTC_0491b /Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7e-m/crti.o /Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7e-m/crtbegin.o /Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv7e-m/crt0.o -L/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7e-m -L/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv7e-m -L/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../arm-none-eabi/lib/armv7e-m -L/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4 -L/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc -L/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib -L/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../arm-none-eabi/lib --gc-sections CMakeFiles/cmTC_0491b.dir/CMakeCXXCompilerABI.cpp.obj -larm_cortexM4l_math -lm --start-group -lgcc -lc --end-group /Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7e-m/crtend.o /Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7e-m/crtn.o -T /Applications/Arduino.app/Contents/Java/hardware/teensy/avr/cores/teensy3/mk20dx256.ld
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(arm-none-eabi-ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /Users/dan/Dropbox/FatBike-teensy/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_0491b/fast"]
+  ignore line: [/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_0491b.dir/build.make CMakeFiles/cmTC_0491b.dir/build]
+  ignore line: [Building CXX object CMakeFiles/cmTC_0491b.dir/CMakeCXXCompilerABI.cpp.obj]
+  ignore line: [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/arm-none-eabi-g++   -DARDUINO=106 -DLAYOUT_US_ENGLISH -DTEENSYDUINO=127 -DUSB_PID=null -DUSB_VID=null -D__MK20DX256__ -I/Applications/Arduino.app/Contents/Java/hardware/teensy/avr/cores/teensy3  -Os -Wall -nostdlib -ffunction-sections -fdata-sections -mcpu=cortex-m4 -mthumb -fno-exceptions -fno-rtti -felide-constructors -std=gnu++0x    -MMD -o CMakeFiles/cmTC_0491b.dir/CMakeCXXCompilerABI.cpp.obj -c /usr/local/Cellar/cmake/3.5.0/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTC_0491b]
+  ignore line: [/usr/local/Cellar/cmake/3.5.0/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0491b.dir/link.txt --verbose=1]
+  ignore line: [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/arm-none-eabi-gcc  -Os -Wl,--gc-sections -mcpu=cortex-m4 -mthumb -T/Applications/Arduino.app/Contents/Java/hardware/teensy/avr/cores/teensy3/mk20dx256.ld -v -o cmTC_0491b  CMakeFiles/cmTC_0491b.dir/CMakeCXXCompilerABI.cpp.obj   -larm_cortexM4l_math -lm]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/arm-none-eabi-gcc]
+  ignore line: [COLLECT_LTO_WRAPPER=/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/lto-wrapper]
+  ignore line: [Target: arm-none-eabi]
+  ignore line: [Configured with: /Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/src/gcc/configure --target=arm-none-eabi --prefix=/Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/install-native --libexecdir=/Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/install-native/lib --infodir=/Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/install-native/share/doc/gcc-arm-none-eabi/info --mandir=/Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/install-native/share/doc/gcc-arm-none-eabi/man --htmldir=/Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/install-native/share/doc/gcc-arm-none-eabi/html --pdfdir=/Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/install-native/share/doc/gcc-arm-none-eabi/pdf --enable-languages=c,c++ --enable-plugins --disable-decimal-float --disable-libffi --disable-libgomp --disable-libmudflap --disable-libquadmath --disable-libssp --disable-libstdcxx-pch --disable-nls --disable-shared --disable-threads --disable-tls --with-gnu-as --with-gnu-ld --with-newlib --with-headers=yes --with-python-dir=share/gcc-arm-none-eabi --with-sysroot=/Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/install-native/arm-none-eabi --build=x86_64-apple-darwin10 --host=x86_64-apple-darwin10 --with-gmp=/Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/build-native/host-libs/usr --with-mpfr=/Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/build-native/host-libs/usr --with-mpc=/Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/build-native/host-libs/usr --with-isl=/Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/build-native/host-libs/usr --with-cloog=/Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/build-native/host-libs/usr --with-libelf=/Users/build/GCC-4-8-build/gcc-arm-none-eabi-4_8-2014q3-20140805/build-native/host-libs/usr --with-host-libstdcxx='-static-libgcc -Wl,-lstdc++ -lm' --with-pkgversion='GNU Tools for ARM Embedded Processors' --with-multilib-list=armv6-m,armv7-m,armv7e-m,armv7-r]
+  ignore line: [Thread model: single]
+  ignore line: [gcc version 4.8.4 20140725 (release) [ARM/embedded-4_8-branch revision 213147] (GNU Tools for ARM Embedded Processors) ]
+  ignore line: [COMPILER_PATH=/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/:/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/:/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/bin/]
+  ignore line: [LIBRARY_PATH=/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7e-m/:/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv7e-m/:/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../arm-none-eabi/lib/armv7e-m/:/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/:/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/:/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/:/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../arm-none-eabi/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-Os' '-mcpu=cortex-m4' '-mthumb' '-T' '/Applications/Arduino.app/Contents/Java/hardware/teensy/avr/cores/teensy3/mk20dx256.ld' '-v' '-o' 'cmTC_0491b']
+  link line: [ /Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/collect2 --sysroot=/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../arm-none-eabi -X -o cmTC_0491b /Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7e-m/crti.o /Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7e-m/crtbegin.o /Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv7e-m/crt0.o -L/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7e-m -L/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv7e-m -L/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../arm-none-eabi/lib/armv7e-m -L/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4 -L/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc -L/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib -L/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../arm-none-eabi/lib --gc-sections CMakeFiles/cmTC_0491b.dir/CMakeCXXCompilerABI.cpp.obj -larm_cortexM4l_math -lm --start-group -lgcc -lc --end-group /Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7e-m/crtend.o /Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7e-m/crtn.o -T /Applications/Arduino.app/Contents/Java/hardware/teensy/avr/cores/teensy3/mk20dx256.ld]
+    arg [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/collect2] ==> ignore
+    arg [--sysroot=/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../arm-none-eabi] ==> ignore
+    arg [-X] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_0491b] ==> ignore
+    arg [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7e-m/crti.o] ==> ignore
+    arg [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7e-m/crtbegin.o] ==> ignore
+    arg [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv7e-m/crt0.o] ==> ignore
+    arg [-L/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7e-m] ==> dir [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7e-m]
+    arg [-L/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv7e-m] ==> dir [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv7e-m]
+    arg [-L/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../arm-none-eabi/lib/armv7e-m] ==> dir [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../arm-none-eabi/lib/armv7e-m]
+    arg [-L/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4] ==> dir [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4]
+    arg [-L/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc] ==> dir [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc]
+    arg [-L/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib] ==> dir [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib]
+    arg [-L/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../arm-none-eabi/lib] ==> dir [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../arm-none-eabi/lib]
+    arg [--gc-sections] ==> ignore
+    arg [CMakeFiles/cmTC_0491b.dir/CMakeCXXCompilerABI.cpp.obj] ==> ignore
+    arg [-larm_cortexM4l_math] ==> lib [arm_cortexM4l_math]
+    arg [-lm] ==> lib [m]
+    arg [--start-group] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lc] ==> lib [c]
+    arg [--end-group] ==> ignore
+    arg [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7e-m/crtend.o] ==> ignore
+    arg [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7e-m/crtn.o] ==> ignore
+    arg [-T] ==> ignore
+    arg [/Applications/Arduino.app/Contents/Java/hardware/teensy/avr/cores/teensy3/mk20dx256.ld] ==> ignore
+  remove lib [gcc]
+  collapse library dir [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7e-m] ==> [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/lib/gcc/arm-none-eabi/4.8.4/armv7e-m]
+  collapse library dir [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv7e-m] ==> [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/arm-none-eabi/lib/armv7e-m]
+  collapse library dir [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../arm-none-eabi/lib/armv7e-m] ==> [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/arm-none-eabi/lib/armv7e-m]
+  collapse library dir [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4] ==> [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/lib/gcc/arm-none-eabi/4.8.4]
+  collapse library dir [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc] ==> [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/lib/gcc]
+  collapse library dir [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib] ==> [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/arm-none-eabi/lib]
+  collapse library dir [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/../arm-none-eabi/lib] ==> [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/arm-none-eabi/lib]
+  implicit libs: [arm_cortexM4l_math;m;c]
+  implicit dirs: [/Applications/Arduino.app/Contents/Java/hardware/tools/arm/lib/gcc/arm-none-eabi/4.8.4/armv7e-m;/Applications/Arduino.app/Contents/Java/hardware/tools/arm/arm-none-eabi/lib/armv7e-m;/Applications/Arduino.app/Contents/Java/hardware/tools/arm/lib/gcc/arm-none-eabi/4.8.4;/Applications/Arduino.app/Contents/Java/hardware/tools/arm/lib/gcc;/Applications/Arduino.app/Contents/Java/hardware/tools/arm/arm-none-eabi/lib]
+  implicit fwks: []
+
+
+
+
+Detecting CXX [-std=c++1y] compiler features compiled with the following output:
+Change Dir: /Users/dan/Dropbox/FatBike-teensy/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_a7713/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_a7713.dir/build.make CMakeFiles/cmTC_a7713.dir/build
+Building CXX object CMakeFiles/cmTC_a7713.dir/feature_tests.cxx.obj
+/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/arm-none-eabi-g++   -DARDUINO=106 -DLAYOUT_US_ENGLISH -DTEENSYDUINO=127 -DUSB_PID=null -DUSB_VID=null -D__MK20DX256__ -I/Applications/Arduino.app/Contents/Java/hardware/teensy/avr/cores/teensy3  -Os -Wall -nostdlib -ffunction-sections -fdata-sections -mcpu=cortex-m4 -mthumb -fno-exceptions -fno-rtti -felide-constructors -std=gnu++0x    -MMD -std=c++1y -o CMakeFiles/cmTC_a7713.dir/feature_tests.cxx.obj -c /Users/dan/Dropbox/FatBike-teensy/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_a7713
+/usr/local/Cellar/cmake/3.5.0/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a7713.dir/link.txt --verbose=1
+/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/arm-none-eabi-gcc  -Os -Wl,--gc-sections -mcpu=cortex-m4 -mthumb -T/Applications/Arduino.app/Contents/Java/hardware/teensy/avr/cores/teensy3/mk20dx256.ld  -o cmTC_a7713  CMakeFiles/cmTC_a7713.dir/feature_tests.cxx.obj  -larm_cortexM4l_math -lm
+
+
+
+
+Detecting CXX [-std=c++11] compiler features compiled with the following output:
+Change Dir: /Users/dan/Dropbox/FatBike-teensy/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_c5ede/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_c5ede.dir/build.make CMakeFiles/cmTC_c5ede.dir/build
+Building CXX object CMakeFiles/cmTC_c5ede.dir/feature_tests.cxx.obj
+/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/arm-none-eabi-g++   -DARDUINO=106 -DLAYOUT_US_ENGLISH -DTEENSYDUINO=127 -DUSB_PID=null -DUSB_VID=null -D__MK20DX256__ -I/Applications/Arduino.app/Contents/Java/hardware/teensy/avr/cores/teensy3  -Os -Wall -nostdlib -ffunction-sections -fdata-sections -mcpu=cortex-m4 -mthumb -fno-exceptions -fno-rtti -felide-constructors -std=gnu++0x    -MMD -std=c++11 -o CMakeFiles/cmTC_c5ede.dir/feature_tests.cxx.obj -c /Users/dan/Dropbox/FatBike-teensy/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_c5ede
+/usr/local/Cellar/cmake/3.5.0/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c5ede.dir/link.txt --verbose=1
+/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/arm-none-eabi-gcc  -Os -Wl,--gc-sections -mcpu=cortex-m4 -mthumb -T/Applications/Arduino.app/Contents/Java/hardware/teensy/avr/cores/teensy3/mk20dx256.ld  -o cmTC_c5ede  CMakeFiles/cmTC_c5ede.dir/feature_tests.cxx.obj  -larm_cortexM4l_math -lm
+
+
+
+
+Detecting CXX [-std=c++98] compiler features compiled with the following output:
+Change Dir: /Users/dan/Dropbox/FatBike-teensy/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_3130d/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_3130d.dir/build.make CMakeFiles/cmTC_3130d.dir/build
+Building CXX object CMakeFiles/cmTC_3130d.dir/feature_tests.cxx.obj
+/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/arm-none-eabi-g++   -DARDUINO=106 -DLAYOUT_US_ENGLISH -DTEENSYDUINO=127 -DUSB_PID=null -DUSB_VID=null -D__MK20DX256__ -I/Applications/Arduino.app/Contents/Java/hardware/teensy/avr/cores/teensy3  -Os -Wall -nostdlib -ffunction-sections -fdata-sections -mcpu=cortex-m4 -mthumb -fno-exceptions -fno-rtti -felide-constructors -std=gnu++0x    -MMD -std=c++98 -o CMakeFiles/cmTC_3130d.dir/feature_tests.cxx.obj -c /Users/dan/Dropbox/FatBike-teensy/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_3130d
+/usr/local/Cellar/cmake/3.5.0/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3130d.dir/link.txt --verbose=1
+/Applications/Arduino.app/Contents/Java/hardware/tools/arm/bin/arm-none-eabi-gcc  -Os -Wl,--gc-sections -mcpu=cortex-m4 -mthumb -T/Applications/Arduino.app/Contents/Java/hardware/teensy/avr/cores/teensy3/mk20dx256.ld  -o cmTC_3130d  CMakeFiles/cmTC_3130d.dir/feature_tests.cxx.obj  -larm_cortexM4l_math -lm
+
+

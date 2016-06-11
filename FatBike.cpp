@@ -2,8 +2,8 @@
 
 FatBike::FatBike() {
     LEDS.addLeds<OCTOWS2811>(leds, NUM_LEDS);
-    FastLED.setBrightness(60);
-    testPattern();
+    FastLED.setBrightness(128);
+    //testPattern();
 }
 
 float FatBike::Forward1(float thisPixel) {

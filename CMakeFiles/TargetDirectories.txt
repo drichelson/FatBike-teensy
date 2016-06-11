@@ -1,0 +1,6 @@
+/Users/dan/Dropbox/FatBike-teensy/CMakeFiles/FatBike.dir
+/Users/dan/Dropbox/FatBike-teensy/CMakeFiles/rebuild_cache.dir
+/Users/dan/Dropbox/FatBike-teensy/CMakeFiles/FatBike_Upload.dir
+/Users/dan/Dropbox/FatBike-teensy/CMakeFiles/edit_cache.dir
+/Users/dan/Dropbox/FatBike-teensy/CMakeFiles/FatBike_Firmware.dir
+/Users/dan/Dropbox/FatBike-teensy/CMakeFiles/FatBike_TeensyCore.dir
