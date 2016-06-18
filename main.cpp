@@ -24,13 +24,12 @@ void determineMode() {
 }
 
 void setup() {
-    delay(5000);
+    delay(10000);
     Serial.begin(115200);
     Serial.println(F("Starting..."));
-    startMillis = millis();
-//    initFlash();
 
     initSensors();
+    initFlash();
 //    addSensorEntropy();
 
     pixelOnGround = getPixelOnGround();
@@ -51,12 +50,22 @@ void loop() {
         Serial.print(FastLED.getFPS());
 //        Serial.print(100.0 / secondsPer100Frames);
         Serial.println(F(""));
+        String timeString = String(micros(), DEC);
+//        long start = micros();
+
+//        if (writeMode) {
+//            if (write("A STRING!!! " + timeString + '\n') <= 0) {
+//                Serial.println("Could not write string!");
+//            }
+//        }
+//        long end = micros() - start;
+//        Serial.println("flash write micros: " + String(end, DEC));
 
 //        startMillis = now;
 
 //        determineMode();
-        showGyro();
-        Serial.println(pixelOnGround);
+//        showGyro();
+//        Serial.println(pixelOnGround);
     }
 
     //BEGIN ANIMATION-SPECIFIC CODE
