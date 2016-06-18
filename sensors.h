@@ -49,6 +49,29 @@ float getBikeSpeedMph() {
     return smoothedSpeed / 1000.0F;
 }
 
+float getBikeSpeedMphRaw() {
+//    long start = micros();
+    sensors_event_t event;
+
+    gyro.getEvent(&event);
+
+    // 1mph = 1.2566 rad/sec
+    // 10mph = 12.56636 rad/sec
+    float y = -event.gyro.y;
+//    if (y < 0.113636364) y = 0.0F; //if rolling backwards or less than 2"/sec
+
+    float speedMph = y / SPEED_FACTOR;
+//    int speedAsInt = (int) (speedMph * 1000.0F);
+
+//    int smoothedSpeed = digitalSmooth(speedAsInt, speedSmoothingArray);
+//    float timeMicros = micros() - start ;
+//    Serial.print(F("Gyro getBikeSpeedMph time (micros):  "));
+//    Serial.println(timeMicros);
+//    return smoothedSpeed / 1000.0F;
+return speedMph;
+
+}
+
 //NOTE: This takes ~1040 microseconds
 uint8_t getPixelOnGround() {
 //    long startMicros = micros();

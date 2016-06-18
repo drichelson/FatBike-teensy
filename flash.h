@@ -6,6 +6,7 @@
 #define SO_PIN 12
 #define SCK_PIN 13
 #define FILE_NAME "log.txt"
+#define FILE_SIZE 10000000
 
 #include <SerialFlash.h>
 #include <SPI.h>
@@ -16,14 +17,14 @@ bool erase = true;
 
 uint32_t write(String toWrite) {
     int length = toWrite.length();
-    Serial.print("Length: ");
-    Serial.println(length);
-    Serial.print("chars: ");
+//    Serial.print("Length: ");
+//    Serial.println(length);
+//    Serial.print("chars: ");
     unsigned char chars[length];
     toWrite.getBytes(chars, length + 1, 0);
-    for (int i = 0; i < length; i++) {
-        Serial.println(chars[i]);
-    }
+//    for (int i = 0; i < length; i++) {
+//        Serial.println(chars[i]);
+//    }
 //    Serial.println(chars);
 //    char bufferC[3] = {'c', 'c', 'c'};
     return file.write(&chars, length);
@@ -37,8 +38,6 @@ void initFlash() {
     SPI.setMISO(SO_PIN);
     SPI.setSCK(SCK_PIN);
 
-//    SerialFlash.sleep();
-//    SerialFlash.wakeup();
     if (!SerialFlash.begin(CS_PIN)) {
         Serial.println("Unable to access SPI Flash chip");
         exit(1);
@@ -67,7 +66,7 @@ void initFlash() {
         }
         //create 1MBit file
         Serial.println("Creating file..");
-        if (!SerialFlash.createErasable(FILE_NAME, 1000000)) {
+        if (!SerialFlash.createErasable(FILE_NAME, FILE_SIZE)) {
             Serial.println(F("Could not create file"));
             exit(1);
         }
@@ -122,12 +121,19 @@ void initFlash() {
             String y = String(event.gyro.y, 3);
             String z = String(event.gyro.z, 3);
 
-            String toWrite = String(timeString + ',' + p + ',' + r + ',' + x + ',' + y + ',' + z + ';');
+            String pixelOnGround = String(getPixelOnGround());
+            String bikeSpeedMph = String(getBikeSpeedMph(), 3);
+            String bikeSpeedMphRaw = String(getBikeSpeedMphRaw(), 3);
+
+            String toWrite = String(
+                    timeString + ',' + p + ',' + r + ',' + x + ',' + y + ',' + z + ',' + pixelOnGround + ',' +
+                    bikeSpeedMph + ',' + bikeSpeedMphRaw + ';');
 
             if (write(toWrite) <= 0) {
                 Serial.println("Could not write string!");
                 exit(1);
             }
+            delay(5);
 
 //        }
 //            file.close();
@@ -135,9 +141,16 @@ void initFlash() {
         }
     } else {
         char readBuffer[1000];
-        file.seek(0);
-        file.read(readBuffer, 1000);
-        Serial.println(readBuffer);
+        Serial.println();
+
+        for (int i = 0; i < FILE_SIZE; i += 1000) {
+            file.seek(i);
+            if (file.read(readBuffer, 1000) > 0){
+                Serial.print(readBuffer);
+            }
+            else
+                break;
+        }
         file.close();
         exit(0);
     }
