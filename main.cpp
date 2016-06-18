@@ -54,7 +54,7 @@ void loop() {
 
 //        startMillis = now;
 
-        determineMode();
+//        determineMode();
         showGyro();
         Serial.println(pixelOnGround);
     }
@@ -62,6 +62,7 @@ void loop() {
     //BEGIN ANIMATION-SPECIFIC CODE
 
     //2 fps
+
     bikeSpeedMph = getBikeSpeedMph();
 
     // calling getPixelOnGround every frame vs. every 10th frame costs us ~2-3 fps

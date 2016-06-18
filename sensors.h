@@ -27,15 +27,12 @@ float sensorPitchTo360Scale(float sensorDegrees) {
     }
 }
 
+//NOTE: This takes < 900 microseconds
 float getBikeSpeedMph() {
+//    long start = micros();
     sensors_event_t event;
 
-//    long gyroStartMicros = micros();
-    //NOTE: This takes < 900 microseconds
     gyro.getEvent(&event);
-//    float timeMicros = micros() - gyroStartMicros ;
-//    Serial.print(F("Gyro sensor time (micros):  "));
-//    Serial.println(timeMicros);
 
     // 1mph = 1.2566 rad/sec
     // 10mph = 12.56636 rad/sec
@@ -46,21 +43,19 @@ float getBikeSpeedMph() {
     int speedAsInt = (int) (speedMph * 1000.0F);
 
     int smoothedSpeed = digitalSmooth(speedAsInt, speedSmoothingArray);
+//    float timeMicros = micros() - start ;
+//    Serial.print(F("Gyro getBikeSpeedMph time (micros):  "));
+//    Serial.println(timeMicros);
     return smoothedSpeed / 1000.0F;
 }
 
+//NOTE: This takes ~1040 microseconds
 uint8_t getPixelOnGround() {
+//    long startMicros = micros();
     sensors_event_t accel_event;
     sensors_vec_t orientation;
 
-//    long startMicros = micros();
-    //NOTE: This takes < 900 microseconds
     accel.getEvent(&accel_event);
-//    float timeMicros = micros() - startMicros ;
-//    Serial.print(F("Accel sensor time (micros):  "));
-//    Serial.println(timeMicros);
-
-    if (dof.accelGetOrientation(&accel_event, &orientation)) {
         /* 'orientation' should have valid .roll and .pitch fields */
 //        Serial.print("Roll: ");
 //        Serial.print(orientation.roll);
@@ -69,10 +64,17 @@ uint8_t getPixelOnGround() {
 //        Serial.print("Pitch: ");
 //        Serial.print(orientation.pitch);
 //        Serial.println("");
+
+    if (dof.accelGetOrientation(&accel_event, &orientation)) {
     }
     float normalizedDegrees = sensorPitchTo360Scale(orientation.pitch);
 
     uint8_t thisPixel = (uint8_t) ((normalizedDegrees / 360.0F) * (NUM_LEDS - 1));
+
+//    float timeMicros = micros() - startMicros ;
+//    Serial.print(F("Accel getPixelOnGround time (micros):  "));
+//    Serial.println(timeMicros);
+
     return (uint8_t) FatBike::Forward(thisPixel, PIXELS_BETWEEN_SENSOR_AND_ZERO_PIXEL);
 //    return (uint8_t) digitalSmooth(pixelOnGround, pixelOnGroundSmoothingArray);
 }
