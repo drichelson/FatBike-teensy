@@ -20,8 +20,8 @@ uint32_t write(String toWrite) {
     Serial.println(length);
     Serial.print("chars: ");
     unsigned char chars[length];
-    toWrite.getBytes(chars, length+1, 0);
-    for (int i = 0;i < length;i++) {
+    toWrite.getBytes(chars, length + 1, 0);
+    for (int i = 0; i < length; i++) {
         Serial.println(chars[i]);
     }
 //    Serial.println(chars);
@@ -37,6 +37,8 @@ void initFlash() {
     SPI.setMISO(SO_PIN);
     SPI.setSCK(SCK_PIN);
 
+//    SerialFlash.sleep();
+//    SerialFlash.wakeup();
     if (!SerialFlash.begin(CS_PIN)) {
         Serial.println("Unable to access SPI Flash chip");
         exit(1);
@@ -44,7 +46,6 @@ void initFlash() {
 
 
 //    SerialFlash.opendir();
-
 
     if (writeMode) {
         if (erase) {
@@ -91,41 +92,51 @@ void initFlash() {
 
         while (true) {
 
-            String timeString = String(micros(), DEC);
+            String timeString = String(millis(), DEC);
+
             //read some sensor data:
             sensors_event_t accel_event;
             sensors_vec_t orientation;
 
 
             if (!accel.getEvent(&accel_event)) {
-                Serial.println("Error calling getEvent.");
+                Serial.println("Error calling getEvent;");
+                exit(1);
             }
             if (!dof.accelGetOrientation(&accel_event, &orientation)) {
-                Serial.println("Error calling accelGetOrientation.");
+                Serial.println("Error calling accelGetOrientation;");
+                exit(1);
             }
-            String o = String(orientation.heading, 3);
-            String toWrite = String(timeString + ',' + o + ';');
+//            String h = String(orientation.heading, 3);
+            String p = String(orientation.pitch, 3);
+            String r = String(orientation.roll, 3);
 
+            sensors_event_t event;
 
-//        long start = micros();
-//        if (writeMode) {
+            if (!gyro.getEvent(&event)) {
+                Serial.println("Error calling gyro.getEvent;");
+                exit(1);
+            }
+
+            String x = String(event.gyro.x, 3);
+            String y = String(event.gyro.y, 3);
+            String z = String(event.gyro.z, 3);
+
+            String toWrite = String(timeString + ',' + p + ',' + r + ',' + x + ',' + y + ',' + z + ';');
+
             if (write(toWrite) <= 0) {
                 Serial.println("Could not write string!");
                 exit(1);
             }
-            if (write(toWrite) <= 0) {
-                Serial.println("Could not write string!");
-                exit(1);
-            }
+
 //        }
-            file.close();
-            exit(0);
+//            file.close();
+//            exit(0);
         }
-        file.close();
     } else {
-        char readBuffer[100];
+        char readBuffer[1000];
         file.seek(0);
-        file.read(readBuffer, 100);
+        file.read(readBuffer, 1000);
         Serial.println(readBuffer);
         file.close();
         exit(0);
