@@ -82,21 +82,14 @@ void initFlash() {
     }
 
     if (writeMode) {
-//        char bufferA[1] = {' '};
-//        char bufferB[2] = {'b', 'b'};
-//        char bufferC[3] = {'c', 'c', 'c'};
-//        Serial.println(file.write(bufferA, 1));
-//        Serial.println(file.write(bufferB, 2));
-//        Serial.println(file.write(bufferC, 3));
-
+//        FatBike *fatBike;
+//        fatBike = &FatBike::getInstance();
+        write(String("Starting..."));
         while (true) {
-
             String timeString = String(millis(), DEC);
-
             //read some sensor data:
             sensors_event_t accel_event;
             sensors_vec_t orientation;
-
 
             if (!accel.getEvent(&accel_event)) {
                 Serial.println("Error calling getEvent;");
@@ -121,35 +114,47 @@ void initFlash() {
             String y = String(event.gyro.y, 3);
             String z = String(event.gyro.z, 3);
 
-            String pixelOnGround = String(getPixelOnGround());
+            int pixelOnGround = getPixelOnGround();
+            String pixelOnGroundStr = String(pixelOnGround);
             String bikeSpeedMph = String(getBikeSpeedMph(), 3);
             String bikeSpeedMphRaw = String(getBikeSpeedMphRaw(), 3);
 
             String toWrite = String(
-                    timeString + ',' + p + ',' + r + ',' + x + ',' + y + ',' + z + ',' + pixelOnGround + ',' +
+                    timeString + ',' + p + ',' + r + ',' + x + ',' + y + ',' + z + ',' + pixelOnGroundStr + ',' +
                     bikeSpeedMph + ',' + bikeSpeedMphRaw + ';');
 
             if (write(toWrite) <= 0) {
                 Serial.println("Could not write string!");
                 exit(1);
             }
+            Serial.print(".");
+//            fatBike->leds[pixelOnGround] = CRGB::White;
+//            FastLED.show();
+//            fatBike->clearAll();
+            //        }
             delay(5);
 
-//        }
 //            file.close();
 //            exit(0);
         }
     } else {
-        char readBuffer[1000];
+        char readBuffer[5000];
         Serial.println();
 
-        for (int i = 0; i < FILE_SIZE; i += 1000) {
-            file.seek(i);
-            if (file.read(readBuffer, 1000) > 0){
-                Serial.print(readBuffer);
+        for (int i = 0; i < FILE_SIZE; i += 5000) {
+            if (file.available() > 0) {
+                file.seek(i);
+//            Serial.println();
+//            Serial.println(i);
+                if (file.read(readBuffer, 5000) > 0) {
+                    Serial.print(readBuffer);
+//                Serial.println();
+//                Serial.println();
+                }
+                else
+                    break;
+                delay(50);
             }
-            else
-                break;
         }
         file.close();
         exit(0);

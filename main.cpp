@@ -29,7 +29,7 @@ void setup() {
     Serial.println(F("Starting..."));
 
     initSensors();
-    initFlash();
+//    initFlash();
 //    addSensorEntropy();
 
     pixelOnGround = getPixelOnGround();
@@ -50,7 +50,7 @@ void loop() {
         Serial.print(FastLED.getFPS());
 //        Serial.print(100.0 / secondsPer100Frames);
         Serial.println(F(""));
-        String timeString = String(micros(), DEC);
+//        String timeString = String(micros(), DEC);
 //        long start = micros();
 
 //        if (writeMode) {

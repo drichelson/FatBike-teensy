@@ -104,7 +104,7 @@ uint8_t getPixelOnGround() {
 
 void initSensors() {
     Serial.println(F("Initializing sensors..."));
-    if (!gyro.begin()) {
+    if (!gyro.begin(GYRO_RANGE_2000DPS)) {
         /* There was a problem detecting the L3GD20 ... check your connections */
         Serial.print(F("Ooops, no L3GD20 detected ... Check your wiring or I2C ADDR!"));
         while (1);
