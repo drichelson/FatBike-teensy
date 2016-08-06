@@ -29,7 +29,7 @@ void setup() {
 
     initSensors();
 //    initFlash();
-//    addSensorEntropy();
+    addSensorEntropy();
 
     bikeSpeedMph = getBikeSpeedMph();
     pixelOnGround = getPixelOnGround(bikeSpeedMph);
@@ -39,9 +39,9 @@ void setup() {
 }
 
 void loop() {
+    addSensorEntropy();
 
     if (frameCount % 1000 == 0) {
-//        addSensorEntropy();
 //        Serial.println(bikeSpeedMph);
 //        long now = millis();
 //        float secondsPer100Frames = (now - startMillis) / 1000.0F;

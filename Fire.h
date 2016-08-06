@@ -138,8 +138,8 @@ CRGBPalette16 gPal;
 // Default 120, suggested range 50-200.
 //#define SPARKING 200
 
-int16_t cooling = 60;
-int16_t sparking = 200;
+int16_t cooling = 90;
+int16_t sparking = 160;
 
 //CRGB::Black, CRGB::Red, CRGB::Yellow, CRGB::White
 CHSV paletteA = rgb2hsv_approximate(CRGB::Black);
@@ -199,8 +199,9 @@ public:
     }
 
     void makeFire(byte heat[], uint8_t startInclusive, uint8_t endExclusive) {
+        uint8_t ledCount = endExclusive - startInclusive + 1;
         for (int i = startInclusive; i < endExclusive; i++) {
-            heat[i] = qsub8(heat[i], random8(0, ((cooling * 10) / endExclusive) + 2));
+            heat[i] = qsub8(heat[i], random8(0, ((cooling * 10) / ledCount) + 2));
         }
 
 //    // Step 2.  Heat from each cell drifts 'up' and diffuses a little
@@ -233,14 +234,14 @@ public:
             preRenderStationaryFire();
         }
 
-        makeFire(heat, 0, (uint8_t) (244.0F / 2));
-        makeFire(heat, (uint8_t) (244.0F / 2), (int) 244.0F);
+        makeFire(heat, 0, 122);
+        makeFire(heat, 122, 244);
 
         float thisPixel = pixelOnGround;
         // Step 4.  Map from heat cells to LED colors
 
         //Render one side:
-        for (int j = 0; j < (int) 244.0F / 2; j++) {
+        for (int j = 0; j < 122; j++) {
             // Scale the heat value from 0-255 down to 0-240
             // for best results with color palettes.
             byte colorindex = scale8(heat[j], 240);
@@ -250,35 +251,42 @@ public:
 
         //Render the other side:
         thisPixel = FatBike::Forward1(pixelOnGround);
-        for (int j = (int) 244.0F / 2; j < (int) 244.0F; j++) {
+        for (int j = 122; j < 244; j++) {
             // Scale the heat value from 0-255 down to 0-240
             // for best results with color palettes.
             byte colorindex = scale8(heat[j], 240);
             fatBike.leds[(int) thisPixel] = ColorFromPalette(gPal, colorindex);
             thisPixel = FatBike::Forward1(thisPixel);
         }
-
     }
 
     void preRenderStationaryFire() {
+        uint8_t maxCooling = 100;
+        uint8_t minCooling = 30;
+
+        uint8_t maxSparking = 200;
+        uint8_t minSparking = 50;
+
         uint8_t rando = random8();
         uint8_t rando1to5 = (rando / 63) + 1;
         if (rando < 25) {
-            paletteB.hue += rando1to5;
-            cooling += random8(1, 4);
-            if (cooling > 100 || cooling < 40) {
-                cooling = 40;
+//            paletteB.hue += rando1to5;
+            cooling++;// += random8(1, 4);
+
+            if (cooling > maxCooling || cooling < minCooling) {
+                cooling = minCooling;
             }
         }
         else if (rando < 75) {
-            paletteC.hue += rando1to5;
+//            paletteC.hue += rando1to5;
             sparking += (rando / 25);
-            if (sparking > 200 || sparking < 30) {
-                sparking = 30;
+
+            if (sparking > maxSparking || sparking < minSparking) {
+                sparking = minSparking;
             }
         }
         else if (rando < 150) {
-            paletteD.hue += rando1to5;
+//            paletteD.hue += rando1to5;
         }
         /*
         Serial.print("B: ");
