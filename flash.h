@@ -114,7 +114,7 @@ void initFlash() {
             String y = String(event.gyro.y, 3);
             String z = String(event.gyro.z, 3);
 
-            int pixelOnGround = getPixelOnGround();
+            int pixelOnGround = getPixelOnGround(0);
             String pixelOnGroundStr = String(pixelOnGround);
             String bikeSpeedMph = String(getBikeSpeedMph(), 3);
             String bikeSpeedMphRaw = String(getBikeSpeedMphRaw(), 3);

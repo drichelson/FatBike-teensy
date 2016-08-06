@@ -11,7 +11,6 @@
 #include "Fire.h"
 
 long frameCount = 0L;
-long startMillis = 0L;
 uint8_t pixelOnGround = 0;
 float bikeSpeedMph = 0.0F;
 boolean isMovingMode = false;
@@ -24,7 +23,7 @@ void determineMode() {
 }
 
 void setup() {
-    delay(10000);
+    delay(3000);
     Serial.begin(115200);
     Serial.println(F("Starting..."));
 
@@ -32,8 +31,8 @@ void setup() {
 //    initFlash();
 //    addSensorEntropy();
 
-    pixelOnGround = getPixelOnGround();
     bikeSpeedMph = getBikeSpeedMph();
+    pixelOnGround = getPixelOnGround(bikeSpeedMph);
 
     fire = &Fire::getInstance();
     fatBike = &FatBike::getInstance();
@@ -41,7 +40,7 @@ void setup() {
 
 void loop() {
 
-    if (frameCount % 100 == 0) {
+    if (frameCount % 1000 == 0) {
 //        addSensorEntropy();
 //        Serial.println(bikeSpeedMph);
 //        long now = millis();
@@ -72,11 +71,11 @@ void loop() {
 
     //2 fps
 
-    bikeSpeedMph = getBikeSpeedMph();
+    bikeSpeedMph = getBikeSpeedMphRaw();
 
     // calling getPixelOnGround every frame vs. every 10th frame costs us ~2-3 fps
 //    if (frameCount % 10 == 0 && !isMovingMode && bikeSpeedMph < 0.5F) {
-    pixelOnGround = getPixelOnGround();
+    pixelOnGround = getPixelOnGround(bikeSpeedMph);
 //    }
     fire->renderDoubleFire(pixelOnGround, bikeSpeedMph, isMovingMode);
 

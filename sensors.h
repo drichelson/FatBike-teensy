@@ -11,7 +11,9 @@
 //Sensor setup, reading, unit conversion, and fitting for https://www.adafruit.com/products/1714
 
 #define PIXELS_BETWEEN_SENSOR_AND_ZERO_PIXEL 20.0F
-#define SPEED_FACTOR 1.256636F
+
+//Converts rad/sec to bike mph:
+#define SPEED_MULTIPLIER 1.256636F
 
 Adafruit_9DOF dof = Adafruit_9DOF();
 Adafruit_L3GD20_Unified gyro = Adafruit_L3GD20_Unified(20);
@@ -39,7 +41,7 @@ float getBikeSpeedMph() {
     float y = -event.gyro.y;
     if (y < 0.113636364) y = 0.0F; //if rolling backwards or less than 2"/sec
 
-    float speedMph = y / SPEED_FACTOR;
+    float speedMph = y * SPEED_MULTIPLIER;
     int speedAsInt = (int) (speedMph * 1000.0F);
 
     int smoothedSpeed = digitalSmooth(speedAsInt, speedSmoothingArray);
@@ -60,7 +62,7 @@ float getBikeSpeedMphRaw() {
     float y = -event.gyro.y;
 //    if (y < 0.113636364) y = 0.0F; //if rolling backwards or less than 2"/sec
 
-    float speedMph = y / SPEED_FACTOR;
+    float speedMph = y * SPEED_MULTIPLIER;
 //    int speedAsInt = (int) (speedMph * 1000.0F);
 
 //    int smoothedSpeed = digitalSmooth(speedAsInt, speedSmoothingArray);
@@ -68,18 +70,21 @@ float getBikeSpeedMphRaw() {
 //    Serial.print(F("Gyro getBikeSpeedMph time (micros):  "));
 //    Serial.println(timeMicros);
 //    return smoothedSpeed / 1000.0F;
-return speedMph;
+    if (speedMph < 0.0) {
+        return 0.0;
+    }
+    return speedMph;
 
 }
 
 //NOTE: This takes ~1040 microseconds
-uint8_t getPixelOnGround() {
+uint8_t getPixelOnGround(float mph) {
 //    long startMicros = micros();
     sensors_event_t accel_event;
     sensors_vec_t orientation;
 
     accel.getEvent(&accel_event);
-        /* 'orientation' should have valid .roll and .pitch fields */
+    /* 'orientation' should have valid .roll and .pitch fields */
 //        Serial.print("Roll: ");
 //        Serial.print(orientation.roll);
 //        Serial.print("; ");
@@ -88,8 +93,7 @@ uint8_t getPixelOnGround() {
 //        Serial.print(orientation.pitch);
 //        Serial.println("");
 
-    if (dof.accelGetOrientation(&accel_event, &orientation)) {
-    }
+    dof.accelGetOrientation(&accel_event, &orientation);
     float normalizedDegrees = sensorPitchTo360Scale(orientation.pitch);
 
     uint8_t thisPixel = (uint8_t) ((normalizedDegrees / 360.0F) * (NUM_LEDS - 1));
@@ -98,7 +102,8 @@ uint8_t getPixelOnGround() {
 //    Serial.print(F("Accel getPixelOnGround time (micros):  "));
 //    Serial.println(timeMicros);
 
-    return (uint8_t) FatBike::Forward(thisPixel, PIXELS_BETWEEN_SENSOR_AND_ZERO_PIXEL);
+    int speedFactor = mph * 3.0; //magic!
+    return (uint8_t) FatBike::Forward(thisPixel, PIXELS_BETWEEN_SENSOR_AND_ZERO_PIXEL - speedFactor);
 //    return (uint8_t) digitalSmooth(pixelOnGround, pixelOnGroundSmoothingArray);
 }
 
@@ -121,6 +126,7 @@ void addSensorEntropy() {
     gyro.getEvent(&event);
     random16_add_entropy((uint16_t) (micros() / event.magnetic.heading));
 }
+
 //
 //uint16_t getRandomSeed() {
 //    sensors_event_t event;

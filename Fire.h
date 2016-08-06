@@ -216,6 +216,16 @@ public:
     }
 
     void renderDoubleFire(uint8_t pixelOnGround, float bikeSpeedMph, boolean isMovingMode) {
+        //Uncomment this line so we can tell where we think the ground is
+
+
+        fatBike.leds[(int) pixelOnGround] = CRGB::Green;
+        if (bikeSpeedMph < 5.0) {
+            for (int i = 1; i < bikeSpeedMph; i++) {
+                fatBike.leds[(uint8_t) FatBike::Forward(pixelOnGround, -i)] = CRGB::Red;
+            }
+        }
+        return;
         if (isMovingMode) {
             preRenderMovingFire(bikeSpeedMph);
         }
@@ -247,8 +257,7 @@ public:
             fatBike.leds[(int) thisPixel] = ColorFromPalette(gPal, colorindex);
             thisPixel = FatBike::Forward1(thisPixel);
         }
-        //Uncomment this line so we can tell where we think the ground is
-        //  fatBike.leds[(int) pixelOnGround] = CRGB::Green;
+
     }
 
     void preRenderStationaryFire() {
