@@ -7,7 +7,7 @@
 #define NUM_LEDS 244.0F
 #define NUM_STRIPS 8
 #define DATA_PIN 6
-#define MAX_FPS 1000
+#define MAX_FPS 100
 #define GLOBAL_BRIGHTNESS 60
 
 //Singleton to make all the other things easier.
