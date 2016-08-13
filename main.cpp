@@ -39,9 +39,9 @@ void setup() {
 }
 
 void loop() {
-    addSensorEntropy();
 
     if (frameCount % 1000 == 0) {
+        addSensorEntropy();
 //        Serial.println(bikeSpeedMph);
 //        long now = millis();
 //        float secondsPer100Frames = (now - startMillis) / 1000.0F;
@@ -71,13 +71,13 @@ void loop() {
 
     //2 fps
 
-    bikeSpeedMph = getBikeSpeedMphRaw();
+//    bikeSpeedMph = getBikeSpeedMphRaw();
 
     // calling getPixelOnGround every frame vs. every 10th frame costs us ~2-3 fps
 //    if (frameCount % 10 == 0 && !isMovingMode && bikeSpeedMph < 0.5F) {
-    pixelOnGround = getPixelOnGround(bikeSpeedMph);
+    pixelOnGround = getPixelOnGround();
 //    }
-    fire->renderDoubleFire(pixelOnGround, bikeSpeedMph, isMovingMode);
+    fire->renderDoubleFire(pixelOnGround, bikeSpeedMph, isMovingMode, frameCount);
 
     //END ANIMATION-SPECIFIC CODE
 

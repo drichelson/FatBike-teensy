@@ -107,6 +107,11 @@ uint8_t getPixelOnGround(float mph) {
 //    return (uint8_t) digitalSmooth(pixelOnGround, pixelOnGroundSmoothingArray);
 }
 
+uint8_t getPixelOnGround() {
+    return getPixelOnGround(0);
+}
+
+
 void initSensors() {
     Serial.println(F("Initializing sensors..."));
     if (!gyro.begin(GYRO_RANGE_2000DPS)) {

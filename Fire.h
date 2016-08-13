@@ -143,9 +143,12 @@ int16_t sparking = 160;
 
 //CRGB::Black, CRGB::Red, CRGB::Yellow, CRGB::White
 CHSV paletteA = rgb2hsv_approximate(CRGB::Black);
-CHSV paletteB = rgb2hsv_approximate(CRGB::Red);
+CHSV paletteB = rgb2hsv_approximate(CRGB::DarkRed);
 CHSV paletteC = rgb2hsv_approximate(CRGB::Yellow);
-CHSV paletteD = rgb2hsv_approximate(CRGB::White);
+CHSV paletteD = rgb2hsv_approximate(CRGB::WhiteSmoke);
+
+//CHSV paletteD = CHSV(39, 77, 255);
+//CHSV paletteD = rgb2hsv_approximate(CRGB(39, 77, 255));
 
 static byte heat[(int) NUM_LEDS];
 
@@ -164,23 +167,6 @@ public:
         sparking = lerp15by8(30, 200, speedAsFract8);
         uint8_t interpolatedA = lerp8by8(160, 255, speedAsFract8);
         uint8_t interpolatedB = lerp8by8(128, 64, speedAsFract8);
-
-/*
-        Serial.print("cappedMPH: ");
-        Serial.print(cappedBikeSpeedMph);
-        Serial.print(" cooling: ");
-        Serial.print(cooling);
-        Serial.print(" sparking: ");
-        Serial.print(sparking);
-        Serial.print(" speedAsFract8: ");
-        Serial.print(speedAsFract8);
-        Serial.print(" A: ");
-        Serial.print(interpolatedA);
-        Serial.print(" B: ");
-        Serial.print(interpolatedB);
-        Serial.println("");
-*/
-
         gPal = CRGBPalette16(CRGB::Black, CHSV(interpolatedA, 255, 255), CHSV(interpolatedB, 255, 255), CRGB::Gray);
 
         currentPosition = FatBike::Forward(currentPosition, shiftAmount * 0.5F);
@@ -199,12 +185,12 @@ public:
     }
 
     void makeFire(byte heat[], uint8_t startInclusive, uint8_t endExclusive) {
-        uint8_t ledCount = endExclusive - startInclusive + 1;
+        uint8_t ledCount = (uint8_t) (endExclusive - startInclusive + 1);
         for (int i = startInclusive; i < endExclusive; i++) {
             heat[i] = qsub8(heat[i], random8(0, ((cooling * 10) / ledCount) + 2));
         }
 
-//    // Step 2.  Heat from each cell drifts 'up' and diffuses a little
+        // Step 2.  Heat from each cell drifts 'up' and diffuses a little
         for (int k = endExclusive - 3; k > startInclusive; k--) {
             heat[k] = (heat[k - 1] + heat[k - 2] + heat[k - 2]) / 3;
         }
@@ -216,10 +202,12 @@ public:
         }
     }
 
-    void renderDoubleFire(uint8_t pixelOnGround, float bikeSpeedMph, boolean isMovingMode) {
+    void renderDoubleFire(uint8_t pixelOnGround, float bikeSpeedMph, boolean isMovingMode, long frameCount) {
         //Uncomment this line so we can tell where we think the ground is
 //        fatBike.leds[(int) pixelOnGround] = CRGB::Green;
-        /*
+
+
+        /*  This snippet tries to simply visualize the current bike speed
         if (bikeSpeedMph < 5.0) {
             for (int i = 1; i < bikeSpeedMph; i++) {
                 fatBike.leds[(uint8_t) FatBike::Forward(pixelOnGround, -i)] = CRGB::Red;
@@ -227,12 +215,14 @@ public:
         }
         return;
          */
-        if (isMovingMode) {
-            preRenderMovingFire(bikeSpeedMph);
-        }
-        else {
-            preRenderStationaryFire();
-        }
+
+
+//        if (isMovingMode) {
+//            preRenderMovingFire(bikeSpeedMph);
+//        }
+//        else {
+            preRenderStationaryFire(frameCount);
+//        }
 
         makeFire(heat, 0, 122);
         makeFire(heat, 122, 244);
@@ -260,7 +250,7 @@ public:
         }
     }
 
-    void preRenderStationaryFire() {
+    void preRenderStationaryFire(long frameCount) {
         uint8_t maxCooling = 100;
         uint8_t minCooling = 30;
 
@@ -269,38 +259,12 @@ public:
 
         uint8_t rando = random8();
         uint8_t rando1to5 = (rando / 63) + 1;
-        if (rando < 25) {
-//            paletteB.hue += rando1to5;
-            cooling++;// += random8(1, 4);
-
-            if (cooling > maxCooling || cooling < minCooling) {
-                cooling = minCooling;
-            }
-        }
-        else if (rando < 75) {
-//            paletteC.hue += rando1to5;
-            sparking += (rando / 25);
-
-            if (sparking > maxSparking || sparking < minSparking) {
-                sparking = minSparking;
-            }
-        }
-        else if (rando < 150) {
-//            paletteD.hue += rando1to5;
-        }
-        /*
-        Serial.print("B: ");
-        Serial.print(paletteB.hue);
-        Serial.print(" C: ");
-        Serial.print(paletteC.hue);
-        Serial.print(" D: ");
-        Serial.print(paletteD.hue);
-        Serial.print(" sparking: ");
-        Serial.print(sparking);
-        Serial.print(" cooling: ");
-        Serial.print(cooling);
-        Serial.println("");
-*/
+        cooling = minCooling + scale8(sin8((uint8_t) (frameCount / 5 % 255)), maxCooling - minCooling);
+        sparking = minSparking + scale8(cos8((uint8_t) (frameCount / 6 % 255)), maxSparking - minSparking);
+//        Serial.print(cooling);
+//        Serial.print(",");
+//        Serial.print(sparking);
+//        Serial.println();
 
         gPal = CRGBPalette16(paletteA, paletteB, paletteC, paletteD);
     }
@@ -312,30 +276,13 @@ public:
         sparking = lerp15by8(30, 200, speedAsFract8);
         uint8_t interpolatedA = lerp8by8(160, 255, speedAsFract8);
         uint8_t interpolatedB = lerp8by8(128, 64, speedAsFract8);
-
-/*
-        Serial.print("cappedMPH: ");
-        Serial.print(cappedBikeSpeedMph);
-        Serial.print(" cooling: ");
-        Serial.print(cooling);
-        Serial.print(" sparking: ");
-        Serial.print(sparking);
-        Serial.print(" speedAsFract8: ");
-        Serial.print(speedAsFract8);
-        Serial.print(" A: ");
-        Serial.print(interpolatedA);
-        Serial.print(" B: ");
-        Serial.print(interpolatedB);
-        Serial.println("");
-*/
-
         gPal = CRGBPalette16(CRGB::Black, CHSV(interpolatedA, 255, 255), CHSV(interpolatedB, 255, 255), CRGB::Gray);
     }
 
 private:
     Fire() :
             fatBike(FatBike::getInstance()),
-            currentPosition(0.0F) { }
+            currentPosition(0.0F) {}
 
     FatBike &fatBike;
     float currentPosition;
