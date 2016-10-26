@@ -3,7 +3,6 @@
 #include <Arduino.h>
 #include <OctoWS2811.h>
 #include <FastLED.h>
-//#include <lib8tion.h>
 #include "FatBike.h"
 #include "FatBike.cpp"
 #include "sensors.h"
@@ -18,9 +17,6 @@ boolean isMovingMode = false;
 Fire *fire;
 FatBike *fatBike;
 
-void determineMode() {
-    isMovingMode = bikeSpeedMph > 4.0F;
-}
 
 void setup() {
     delay(3000);
@@ -42,41 +38,14 @@ void loop() {
 
     if (frameCount % 1000 == 0) {
         addSensorEntropy();
-//        Serial.println(bikeSpeedMph);
-//        long now = millis();
-//        float secondsPer100Frames = (now - startMillis) / 1000.0F;
         Serial.print(F("FPS: "));
         Serial.print(FastLED.getFPS());
-//        Serial.print(100.0 / secondsPer100Frames);
         Serial.println(F(""));
-//        String timeString = String(micros(), DEC);
-//        long start = micros();
-
-//        if (writeMode) {
-//            if (write("A STRING!!! " + timeString + '\n') <= 0) {
-//                Serial.println("Could not write string!");
-//            }
-//        }
-//        long end = micros() - start;
-//        Serial.println("flash write micros: " + String(end, DEC));
-
-//        startMillis = now;
-
-//        determineMode();
-//        showGyro();
-//        Serial.println(pixelOnGround);
     }
 
     //BEGIN ANIMATION-SPECIFIC CODE
 
-    //2 fps
-
-//    bikeSpeedMph = getBikeSpeedMphRaw();
-
-    // calling getPixelOnGround every frame vs. every 10th frame costs us ~2-3 fps
-//    if (frameCount % 10 == 0 && !isMovingMode && bikeSpeedMph < 0.5F) {
     pixelOnGround = getPixelOnGround();
-//    }
     fire->renderDoubleFire(pixelOnGround, bikeSpeedMph, isMovingMode, frameCount);
 
     //END ANIMATION-SPECIFIC CODE

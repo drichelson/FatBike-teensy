@@ -4,8 +4,6 @@
 #include <FastLED.h>
 #include "FatBike.h"
 
-static const float maxBikeSpeedMph = 10.0F;
-
 ///// Cooling ranges
 
 //const uint16_t cooling = (coolingMin  + coolingMax) / 2;
@@ -160,30 +158,6 @@ public:
         return instance;
     }
 
-    void renderMovingFire(float shiftAmount, float bikeSpeedMph) {
-        float cappedBikeSpeedMph = min(bikeSpeedMph, maxBikeSpeedMph);
-        fract8 speedAsFract8 = (fract8) ((cappedBikeSpeedMph / maxBikeSpeedMph) * 255.0F);
-        cooling = lerp15by8(50, 500, speedAsFract8);
-        sparking = lerp15by8(30, 200, speedAsFract8);
-        uint8_t interpolatedA = lerp8by8(160, 255, speedAsFract8);
-        uint8_t interpolatedB = lerp8by8(128, 64, speedAsFract8);
-        gPal = CRGBPalette16(CRGB::Black, CHSV(interpolatedA, 255, 255), CHSV(interpolatedB, 255, 255), CRGB::Gray);
-
-        currentPosition = FatBike::Forward(currentPosition, shiftAmount * 0.5F);
-        // Array of temperature readings at each simulation cell
-
-        makeFire(heat, 0, (int) NUM_LEDS);
-        float thisPixel = currentPosition;
-        // Step 4.  Map from heat cells to LED colors
-        for (int j = 0; j < NUM_LEDS; j++) {
-            // Scale the heat value from 0-255 down to 0-240
-            // for best results with color palettes.
-            byte colorindex = scale8(heat[j], 240);
-            fatBike.leds[(int) thisPixel] = ColorFromPalette(gPal, colorindex);
-            thisPixel = FatBike::Back1(thisPixel);
-        }
-    }
-
     void makeFire(byte heat[], uint8_t startInclusive, uint8_t endExclusive) {
         uint8_t ledCount = (uint8_t) (endExclusive - startInclusive + 1);
         for (int i = startInclusive; i < endExclusive; i++) {
@@ -216,13 +190,7 @@ public:
         return;
          */
 
-
-//        if (isMovingMode) {
-//            preRenderMovingFire(bikeSpeedMph);
-//        }
-//        else {
-            preRenderStationaryFire(frameCount);
-//        }
+        preRenderStationaryFire(frameCount);
 
         makeFire(heat, 0, 122);
         makeFire(heat, 122, 244);
@@ -267,16 +235,6 @@ public:
 //        Serial.println();
 
         gPal = CRGBPalette16(paletteA, paletteB, paletteC, paletteD);
-    }
-
-    void preRenderMovingFire(float bikeSpeedMph) {
-        float cappedBikeSpeedMph = min(bikeSpeedMph, maxBikeSpeedMph);
-        fract8 speedAsFract8 = (fract8) ((cappedBikeSpeedMph / maxBikeSpeedMph) * 255.0F);
-        cooling = lerp15by8(50, 500, speedAsFract8);
-        sparking = lerp15by8(30, 200, speedAsFract8);
-        uint8_t interpolatedA = lerp8by8(160, 255, speedAsFract8);
-        uint8_t interpolatedB = lerp8by8(128, 64, speedAsFract8);
-        gPal = CRGBPalette16(CRGB::Black, CHSV(interpolatedA, 255, 255), CHSV(interpolatedB, 255, 255), CRGB::Gray);
     }
 
 private:

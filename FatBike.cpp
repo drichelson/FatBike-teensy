@@ -15,7 +15,6 @@ float FatBike::Forward1(float thisPixel) {
 
 // Forward = same direction as motion of wheel (see arrow on tire)
 float FatBike::Forward(float thisPixel, float shiftAmount) {
-//    Serial.println(shiftAmount);
     float newPosition = thisPixel + shiftAmount;
     if (newPosition < NUM_LEDS) {
         return newPosition;
@@ -49,7 +48,6 @@ void FatBike::clearAll() {
 void FatBike::testPattern() {
     for (uint8_t i = 0; i < NUM_LEDS; i++) {
         leds[i] = CRGB::White;
-//            delay(1);
         FastLED.show();
         leds[i] = CRGB::Black;
     }
